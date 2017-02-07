@@ -12,4 +12,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: "mrs-eaves-xl-serif", serif;
+  font-weight: bold;
 }
