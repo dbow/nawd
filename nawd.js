@@ -1,9 +1,11 @@
 (function() {
   var el = document.getElementById('quote');
+  var bg = document.getElementById('bg');
 
   var colorIndex = 0;
   var quotesIndex = 0;
   var quoteIndex = 0;
+  var saturation = 1;
 
   function updateFontSize(word) {
     var width = window.innerWidth;
@@ -13,17 +15,19 @@
 
   function updateColor() {
     var color = COLORS[colorIndex];
-    document.body.style.backgroundColor = color;
+    bg.style.backgroundColor = color;
+    bg.style.filter = 'saturate(' + saturation + ')';
     colorIndex++;
     if (colorIndex >= COLORS.length) {
       colorIndex = 0;
+      saturation = Math.random() * 4;
     }
   }
 
   function updateQuote() {
     var quote = QUOTES[quotesIndex].split(' ');
     var word = quote[quoteIndex];
-    el.innerText = quote[quoteIndex];
+    el.innerText = word;
     updateFontSize(word);
     updateColor();
     quoteIndex++;
