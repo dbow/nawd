@@ -35,7 +35,7 @@
     var quote = QUOTES[quotesIndex].split(' ');
     var word;
     if (happyBirthday) {
-      word = 'HAPPY BIRTHDAY';
+      word = '[HAPPY BIRTHDAY]';
       happyBirthday = false;
     } else {
       word = quote[quoteIndex] + ' ' + (quote[quoteIndex + 1] || '');
