@@ -26,11 +26,11 @@
 
   function updateQuote() {
     var quote = QUOTES[quotesIndex].split(' ');
-    var word = quote[quoteIndex];
+    var word = quote[quoteIndex] + ' ' + (quote[quoteIndex + 1] || '');
     el.innerText = word;
     updateFontSize(word);
     updateColor();
-    quoteIndex++;
+    quoteIndex += 2;
     if (quoteIndex >= quote.length) {
       quoteIndex = 0;
       quotesIndex++;
