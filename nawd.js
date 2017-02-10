@@ -6,6 +6,8 @@
   var quotesIndex = 0;
   var quoteIndex = 0;
   var saturation = 1;
+  var start = new Date().getTime();
+  var TWO_HOURS = 2 * 60 * 60 * 1000;
   var happyBirthday = false;
 
   function updateFontSize(word) {
@@ -16,14 +18,16 @@
 
   function updateColor() {
     var color = COLORS[colorIndex];
-    const rand = Math.random();
+    var rand = Math.random();
     bg.style.backgroundColor = rand > 0.5 ? color.bg : color.text;
     bg.style.color = rand > 0.5 ? color.text : color.bg;
     bg.style.filter = 'saturate(' + saturation + ')';
     colorIndex++;
     if (colorIndex >= COLORS.length) {
       colorIndex = 0;
-      saturation = 0.5 + Math.random() * 1.5;
+      var now = new Date().getTime();
+      var howFarInRWe = Math.min(now - start, TWO_HOURS) / TWO_HOURS;
+      saturation = 1 + howFarInRWe * 3;
     }
   }
 
