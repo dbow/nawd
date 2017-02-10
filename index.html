@@ -18,7 +18,21 @@
 </head>
 
 <body>
+  <script>
+    if (/[?&]{1}vid=1/.test(window.location.search)) {
+      document.body.className = 'video1';
+    }
+    if (/[?&]{1}vid=2/.test(window.location.search)) {
+      document.body.className = 'video2';
+    }
+  </script>
   <div id="bg">
+      <video id="video1" autoplay loop>
+          <source src="rot_form_4smsmsm.mp4" type="video/mp4">
+      </video>
+      <video id="video2" autoplay loop>
+          <source src="rot_form_3_smsmsm.mp4" type="video/mp4">
+      </video>
       <div id="quote"></div>
   </div>
   <script>

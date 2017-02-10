@@ -14,3 +14,21 @@
   font-family: 'Rubik Mono One', sans-serif;
   font-weight: bold;
 }
+
+video {
+  position: absolute;
+  display: none;
+}
+
+.video1 #video1 {
+  display: block;
+}
+.video2 #video2 {
+  display: block;
+}
+.video1 #quote,
+.video2 #quote {
+  z-index: 1;
+  color: white !important;
+  background-color: black !important;
+}
