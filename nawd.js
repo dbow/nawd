@@ -6,6 +6,7 @@
   var quotesIndex = 0;
   var quoteIndex = 0;
   var saturation = 1;
+  var happyBirthday = false;
 
   function updateFontSize(word) {
     var width = window.innerWidth;
@@ -26,14 +27,21 @@
 
   function updateQuote() {
     var quote = QUOTES[quotesIndex].split(' ');
-    var word = quote[quoteIndex] + ' ' + (quote[quoteIndex + 1] || '');
+    var word;
+    if (happyBirthday) {
+      word = 'HAPPY BIRTHDAY';
+      happyBirthday = false;
+    } else {
+      word = quote[quoteIndex] + ' ' + (quote[quoteIndex + 1] || '');
+      quoteIndex += 2;
+    }
     el.innerText = word;
     updateFontSize(word);
     updateColor();
-    quoteIndex += 2;
     if (quoteIndex >= quote.length) {
       quoteIndex = 0;
       quotesIndex++;
+      happyBirthday = true;
       if (quotesIndex >= QUOTES.length) {
         quotesIndex = 0;
       }
@@ -41,5 +49,5 @@
   }
 
   updateQuote();
-  setInterval(updateQuote, 5000);
+  setInterval(updateQuote, 4000);
 })();
