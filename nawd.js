@@ -9,7 +9,7 @@
 
   function updateFontSize(word) {
     var width = window.innerWidth;
-    var fontSize = Math.min(width, width / (word.length * 0.7));
+    var fontSize = Math.min(width, width / word.length);
     el.style.fontSize = fontSize + 'px';
   }
 
