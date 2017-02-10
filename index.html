@@ -18,24 +18,31 @@
 </head>
 
 <body>
-  <script>
-    if (/[?&]{1}vid=1/.test(window.location.search)) {
-      document.body.className = 'video1';
-    }
-    if (/[?&]{1}vid=2/.test(window.location.search)) {
-      document.body.className = 'video2';
-    }
-  </script>
   <div id="bg">
-      <video id="video1" autoplay loop>
-          <source src="rot_form_4smsmsm.mp4" type="video/mp4">
-      </video>
-      <video id="video2" autoplay loop>
-          <source src="rot_form_3_smsmsm.mp4" type="video/mp4">
-      </video>
       <div id="quote"></div>
   </div>
   <script>
+    (function() {
+      function addVideo(id, src) {
+        document.body.className = id;
+        var video = document.createElement('video');
+        video.setAttribute('id', id);
+        video.setAttribute('autoplay', true);
+        video.setAttribute('loop', true);
+        var source = document.createElement('source');
+        source.setAttribute('src', src);
+        source.setAttribute('type', 'video/mp4');
+        video.appendChild(source);
+        document.getElementById('bg').prepend(video);
+      }
+      if (/[?&]{1}vid=1/.test(window.location.search)) {
+        addVideo('video1', 'rot_form_4smsmsm.mp4');
+      }
+      if (/[?&]{1}vid=2/.test(window.location.search)) {
+        addVideo('video2', 'rot_form_3_smsmsm.mp4');
+      }
+    })();
+
     var COLORS = [
         {
             bg: '#e5bc9a',
