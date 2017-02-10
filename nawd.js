@@ -16,12 +16,14 @@
 
   function updateColor() {
     var color = COLORS[colorIndex];
-    bg.style.backgroundColor = color;
+    const rand = Math.random();
+    bg.style.backgroundColor = rand > 0.5 ? color.bg : color.text;
+    bg.style.color = rand > 0.5 ? color.text : color.bg;
     bg.style.filter = 'saturate(' + saturation + ')';
     colorIndex++;
     if (colorIndex >= COLORS.length) {
       colorIndex = 0;
-      saturation = Math.random() * 4;
+      saturation = 0.5 + Math.random() * 1.5;
     }
   }
 
